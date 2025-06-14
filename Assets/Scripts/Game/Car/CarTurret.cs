@@ -1,3 +1,4 @@
+using Game.Bullet;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,31 +11,60 @@ namespace Game.Car
         [Space]
         [SerializeField] private float _rotationSpeed = 5f;
         [SerializeField] private float _maxRotationAngle = 60f;
+        [SerializeField] private float _sensitivity = 0.5f;
+        [SerializeField] private float _fireRate = 1f;
+        [Space]
+        [SerializeField] protected Transform _firePoint;
+        [SerializeField] protected BulletPool _bulletPool;
+        [SerializeField] protected ParticleSystem _fireEffect;
+        //[SerializeField] protected Audio _fireAudio;
 
-        private float currentRotation = 0f;
+        private float _targetRotation;
+        private float _currentRotation;
+        private float _nextFireTime;
 
         public void Init()
         {
             _aimAction.Enable();
-            _aimAction.performed += RotateTurret;
+            _aimAction.performed += SetTargetRotation;
 
             _turretLaser.SetActive(true);
         }
 
-        private void RotateTurret(InputAction.CallbackContext context)
+        private void SetTargetRotation(InputAction.CallbackContext context)
         {
-            var input = context.ReadValue<float>();
-            var deltaX = input * _rotationSpeed * Time.deltaTime;
-            var currentEuler = transform.eulerAngles;
+            float input = context.ReadValue<float>() * _sensitivity;
+            float deltaX = input * _rotationSpeed;
 
-            currentRotation = Mathf.Clamp(currentRotation + deltaX, -_maxRotationAngle, _maxRotationAngle);
-            currentEuler.y = currentRotation;
+            _targetRotation = Mathf.Clamp(_targetRotation + deltaX, -_maxRotationAngle, _maxRotationAngle);
+        }
+
+        private void Update()
+        {
+            if(Time.time >= _nextFireTime)
+            {
+                Shoot();
+                _nextFireTime = Time.time + _fireRate;
+            }
+
+            _currentRotation = Mathf.Lerp(_currentRotation, _targetRotation, Time.deltaTime * _rotationSpeed);
+            var currentEuler = transform.eulerAngles;
+            currentEuler.y = _currentRotation;
+
             transform.eulerAngles = currentEuler;
+        }
+
+        private void Shoot()
+        {
+            //fireEffect.Play();
+
+            var bullet = _bulletPool.Spawn(_firePoint.position, _firePoint.rotation);
+            bullet.AddForce();
         }
 
         private void OnDestroy()
         {
-            _aimAction.performed -= RotateTurret;
+            _aimAction.performed -= SetTargetRotation;
             _aimAction.Disable();
         }
     }

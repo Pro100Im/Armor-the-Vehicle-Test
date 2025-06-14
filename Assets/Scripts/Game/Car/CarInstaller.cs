@@ -8,6 +8,7 @@ namespace Game.Car
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<CarMovement>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<CarTurret>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

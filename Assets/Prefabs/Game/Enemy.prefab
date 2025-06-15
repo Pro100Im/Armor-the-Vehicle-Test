@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049cc43fc25814e41b5614e205d65c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <AttackRange>k__BackingField: 7
 --- !u!95 &512847442746971247
 Animator:
   serializedVersion: 7

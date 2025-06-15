@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Enemy
 {
@@ -11,6 +12,8 @@ namespace Game.Enemy
         [Space]
         [SerializeField] private float _maxRandomSpawnRot = 360;
 
+        [Inject] private readonly DiContainer _container;
+
         private Queue<StickManEnemy> _enemyPool = new Queue<StickManEnemy>();
         private List<StickManEnemy> _activeEnemies = new List<StickManEnemy>();
 
@@ -18,7 +21,7 @@ namespace Game.Enemy
         {
             for(int i = 0; i < _poolSize; i++)
             {
-                var enemy = Instantiate(_stickManPrefab, transform);
+                var enemy = _container.InstantiatePrefabForComponent<StickManEnemy>(_stickManPrefab, transform);
                 enemy.gameObject.SetActive(false);
 
                 _enemyPool.Enqueue(enemy);

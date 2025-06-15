@@ -23,12 +23,15 @@ namespace Game.Car
         private float _currentRotation;
         private float _nextFireTime;
 
+        private bool _inited;
+
         public void Init()
         {
             _aimAction.Enable();
             _aimAction.performed += SetTargetRotation;
 
             _turretLaser.SetActive(true);
+            _inited = true;
         }
 
         private void SetTargetRotation(InputAction.CallbackContext context)
@@ -41,6 +44,8 @@ namespace Game.Car
 
         private void Update()
         {
+            if(!_inited) return;
+
             if(Time.time >= _nextFireTime)
             {
                 Shoot();
@@ -56,7 +61,7 @@ namespace Game.Car
 
         private void Shoot()
         {
-            //fireEffect.Play();
+            _fireEffect.Play();
 
             var bullet = _bulletPool.Spawn(_firePoint.position, _firePoint.rotation);
             bullet.AddForce();

@@ -7,18 +7,18 @@ namespace Game.Enemy
     {
         [field: SerializeField] public float AttackRange { get; private set; } = 6f;
 
-        [Inject] private PatrolState _patrolState;
+        [Inject] private EnemyStateFactory _enemyStateFactory;
 
         private IEnemyState _currentState;
 
-        private void Start()
+        private void OnEnable ()
         {
-            ChangeState(_patrolState);
+            ChangeState<PatrolState>();
         }
 
-        public void ChangeState(IEnemyState newState)
+        public void ChangeState<T>() where T : IEnemyState
         {
-            _currentState = newState;
+            _currentState = _enemyStateFactory.Create<T>();
             _currentState.EnterState(this);
         }
 

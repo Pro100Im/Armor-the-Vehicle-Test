@@ -6,9 +6,10 @@ namespace Game.Enemy
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<PatrolState>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ChaseState>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AttackState>().AsSingle();
+            Container.Bind<EnemyStateFactory>().AsSingle();
+            Container.Bind<IEnemyState>().To<PatrolState>().AsSingle();
+            Container.Bind<IEnemyState>().To<ChaseState>().AsSingle();
+            Container.Bind<IEnemyState>().To<AttackState>().AsSingle();
         }
     }
 }

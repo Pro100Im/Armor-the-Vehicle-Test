@@ -7,9 +7,9 @@ namespace Game.Enemy
         public override void InstallBindings()
         {
             Container.Bind<EnemyStateFactory>().AsSingle();
-            Container.Bind<IEnemyState>().To<PatrolState>().AsSingle();
-            Container.Bind<IEnemyState>().To<ChaseState>().AsSingle();
-            Container.Bind<IEnemyState>().To<AttackState>().AsSingle();
+            Container.Bind<IEnemyState>().To<PatrolState>().AsTransient();
+            Container.Bind<IEnemyState>().To<ChaseState>().AsTransient();
+            Container.Bind<IEnemyState>().To<AttackState>().AsTransient();
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Assets.Scripts.Game.Car
 
         public float GetZ() => transform.position.z;
 
+        public Vector3 Get() => transform.position;
+
         public void StartMoving()
         {
             if(_isMoving) return;

@@ -25,13 +25,23 @@ namespace Game.Car
 
         private bool _inited;
 
-        public void Init()
+        private void Awake()
+        {
+            _aimAction.performed += SetTargetRotation;;
+        }
+
+        public void On()
         {
             _aimAction.Enable();
-            _aimAction.performed += SetTargetRotation;
-
             _turretLaser.SetActive(true);
             _inited = true;
+        }
+
+        public void Off()
+        {
+            _inited = false;
+            _turretLaser.SetActive(false);
+            _aimAction.Disable();
         }
 
         private void SetTargetRotation(InputAction.CallbackContext context)

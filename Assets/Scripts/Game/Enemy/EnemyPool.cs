@@ -17,6 +17,9 @@ namespace Game.Enemy
         private Queue<StickManEnemy> _enemyPool = new Queue<StickManEnemy>();
         private List<StickManEnemy> _activeEnemies = new List<StickManEnemy>();
 
+        public List<StickManEnemy> ActiveEnemies => _activeEnemies;
+
+
         private void Awake()
         {
             for(int i = 0; i < _poolSize; i++)

@@ -7,6 +7,7 @@ namespace Game
         public override void InstallBindings()
         {
             Container.Bind<GameMode>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<EndLevel>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

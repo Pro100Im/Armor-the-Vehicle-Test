@@ -19798,6 +19798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7156588539095892642}
     m_Modifications:
+    - target: {fileID: 293822330608005594, guid: bbe49d5352fca4f478d617072f311b05, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4540288343371265424, guid: bbe49d5352fca4f478d617072f311b05, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -19881,6 +19885,10 @@ PrefabInstance:
     - target: {fileID: 6104933700372115330, guid: bbe49d5352fca4f478d617072f311b05, type: 3}
       propertyPath: m_Name
       value: HpBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104933700372115330, guid: bbe49d5352fca4f478d617072f311b05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

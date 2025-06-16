@@ -15,6 +15,19 @@ namespace Game.Car
             _currentHp = _maxHp;
         }
 
+        public void Show()
+        {
+            _currentHp = _maxHp;
+            _hpBar.gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            _hpBar.gameObject.SetActive(false);
+        }
+
+        public bool IsAlive() => _currentHp > 0;
+
         public void TakeDamage(float damage)
         {
             _currentHp -= damage;

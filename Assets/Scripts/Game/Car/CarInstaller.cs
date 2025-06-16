@@ -9,6 +9,7 @@ namespace Game.Car
         {
             Container.BindInterfacesAndSelfTo<CarMovement>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CarTurret>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<CarHp>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

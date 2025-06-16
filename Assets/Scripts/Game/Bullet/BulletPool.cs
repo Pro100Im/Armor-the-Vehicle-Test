@@ -5,10 +5,10 @@ namespace Game.Bullet
 {
     public class BulletPool : MonoBehaviour, IBulletDeSpawner
     {
-        [SerializeField] private Bullet bulletPrefab;
+        [SerializeField] private BaseBullet bulletPrefab;
         [SerializeField] private int poolSize = 10;
 
-        private Queue<Bullet> bulletPool = new Queue<Bullet>();
+        private Queue<BaseBullet> bulletPool = new Queue<BaseBullet>();
 
         private void Awake()
         {
@@ -22,7 +22,7 @@ namespace Game.Bullet
             }
         }
 
-        public Bullet Spawn(Vector3 position, Quaternion rotation)
+        public BaseBullet Spawn(Vector3 position, Quaternion rotation)
         {
             if(bulletPool.Count > 0)
             {
@@ -40,7 +40,7 @@ namespace Game.Bullet
             }
         }
 
-        private void ResetBullet(Bullet bullet, Vector3 position, Quaternion rotation)
+        private void ResetBullet(BaseBullet bullet, Vector3 position, Quaternion rotation)
         {
             bullet.transform.parent = null;
             bullet.transform.position = position;
@@ -49,7 +49,7 @@ namespace Game.Bullet
             bullet.gameObject.SetActive(true);
         }
 
-        public void Despawn(Bullet bullet)
+        public void Despawn(BaseBullet bullet)
         {
             bullet.gameObject.SetActive(false);
             bullet.transform.parent = transform;

@@ -3,15 +3,14 @@ using UnityEngine;
 
 namespace Game.Bullet
 {
-    public class Bullet : MonoBehaviour
+    public class BaseBullet : MonoBehaviour
     {
-        [SerializeField] protected int damage = 1;
+        [field: SerializeField] public int Damage { get; private set; } = 30;
         [Space]
         [SerializeField] private float speedForce = 5f;
         [SerializeField] private float lifeTime = 3f;
         [Space]
         [SerializeField] private Rigidbody rb;
-        [SerializeField] private LayerMask layer;
 
         private IBulletDeSpawner _bulletPool;
         private Coroutine _coroutine;
@@ -35,13 +34,9 @@ namespace Game.Bullet
             _bulletPool.Despawn(this);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        public void Despawn()
         {
-            if(((1 << collision.gameObject.layer) & layer.value) != 0)
-                return;
-
-            if(_coroutine != null)
-                StopCoroutine(_coroutine);
+            StopCoroutine(_coroutine);
 
             _bulletPool.Despawn(this);
         }

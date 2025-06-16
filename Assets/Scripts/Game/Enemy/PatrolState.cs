@@ -65,7 +65,6 @@ namespace Game.Enemy
             }
             else
                 _waitTimer -= Time.deltaTime;
-
         }
     }
 }

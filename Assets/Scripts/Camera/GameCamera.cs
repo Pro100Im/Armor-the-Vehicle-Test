@@ -1,7 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Camera
+namespace CustomCamera
 {
     public class GameCamera : MonoBehaviour
     {

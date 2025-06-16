@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Camera
+namespace CustomCamera
 {
     public class CameraInstaller : MonoInstaller
     {

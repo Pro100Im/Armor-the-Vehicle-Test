@@ -3,6 +3,6 @@ namespace Game.Bullet
 {
     public interface IBulletDeSpawner
     {
-        public void Despawn(Bullet bullet);
+        public void Despawn(BaseBullet bullet);
     }
 }

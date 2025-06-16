@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Camera
+namespace CustomCamera
 {
     public enum CameraPriority
     {

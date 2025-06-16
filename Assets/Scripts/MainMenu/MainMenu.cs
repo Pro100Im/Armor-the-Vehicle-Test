@@ -1,4 +1,4 @@
-using Camera;
+using CustomCamera;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Game;

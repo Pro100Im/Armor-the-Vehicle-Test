@@ -1434,6 +1434,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1043789124233439853, guid: 7b3acea7e5bdd3f47a9ec1cc65d27340, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043789124233439853, guid: 7b3acea7e5bdd3f47a9ec1cc65d27340, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043789124233439853, guid: 7b3acea7e5bdd3f47a9ec1cc65d27340, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2497889414732966429, guid: 7b3acea7e5bdd3f47a9ec1cc65d27340, type: 3}
       propertyPath: m_Name
       value: Car
@@ -1476,6 +1488,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3197383346046795097, guid: 7b3acea7e5bdd3f47a9ec1cc65d27340, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213079864438382178, guid: 7b3acea7e5bdd3f47a9ec1cc65d27340, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213079864438382178, guid: 7b3acea7e5bdd3f47a9ec1cc65d27340, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using Game.Car;
 using UnityEngine;
 using Zenject;
 
@@ -14,9 +14,10 @@ namespace Game.Enemy
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private ParticleSystem _dieEffect;
         [Space]
-        [SerializeField] private float _walkSpeed;
-        [SerializeField] private float _runSpeed;
-        [SerializeField] private float _rotationSpeed;
+        [SerializeField] private float _walkSpeed = 0.3f;
+        [SerializeField] private float _runSpeed = 6f;
+        [SerializeField] private float _rotationSpeed = 10f;
+        [SerializeField] private float _attackDamage = 3f;
         [Space]
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private LayerMask _bulletLayer;
@@ -69,7 +70,11 @@ namespace Game.Enemy
         private void OnTriggerEnter(Collider other)
         {
             if(((1 << other.gameObject.layer) & _playerLayer) != 0)
+            {
                 ChangeState<AttackState>();
+
+                other.GetComponent<CarHp>().TakeDamage(_attackDamage);
+            }
         }
 
         private void OnDrawGizmos()

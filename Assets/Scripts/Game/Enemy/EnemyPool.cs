@@ -41,8 +41,6 @@ namespace Game.Enemy
             var rotation = Quaternion.Euler(0f, randomY, 0f);
 
             enemy.transform.parent = null;
-            enemy.transform.position = position;
-            enemy.transform.rotation = rotation;
             enemy.Init(position);
             enemy.gameObject.SetActive(true);
 
@@ -55,6 +53,9 @@ namespace Game.Enemy
         {
             enemy.gameObject.SetActive(false);
             enemy.transform.parent = transform;
+
+            if(!_activeEnemies.Contains(enemy))
+                return;
 
             _activeEnemies.Remove(enemy);
             _enemyPool.Enqueue(enemy);

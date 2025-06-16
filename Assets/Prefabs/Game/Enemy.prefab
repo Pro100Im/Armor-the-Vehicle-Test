@@ -220,6 +220,7 @@ MonoBehaviour:
   _walkSpeed: 0.3
   _runSpeed: 6
   _rotationSpeed: 10
+  _attackDamage: 3
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -294,7 +295,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1

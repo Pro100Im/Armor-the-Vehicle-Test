@@ -19,10 +19,9 @@ namespace Game.Road
 
         public void Setup(Vector3 newPos)
         {
-            _enemyPool.DespawnAll();
-
             transform.position = newPos;
 
+            _enemyPool.DespawnAll();
             SetupEnemies();
         }
 

@@ -8,44 +8,64 @@ namespace Game.Enemy
     {
         [Inject] private ICarPosition _carPosition;
 
-        private string _animTrigger = "Idle";
-        private string _animAlterTrigger = "Walk";
+        private const float _waitingTime = 4f;
 
-        private Vector3 _spawnPosition;
+        private string _animState = "Idle";
+        private string _animAlterState = "Walking";
+
         private Vector3 _targetPosition;
 
-        private float _patrolRadius;
+        private float _waitTimer;
+
+        private bool _isMoving;
 
         public void EnterState(StickManEnemy enemy)
         {
-            enemy.SetAnimation(_animTrigger);
-
-            _spawnPosition = enemy.transform.position;
-            _patrolRadius = enemy.AttackRange;
+            _targetPosition = enemy.transform.position;
         }
 
         public void UpdateState(StickManEnemy enemy)
         {
-            var distanceToPlayer = Vector3.Distance(enemy.transform.position, _carPosition.Get());
+            float distanceToPlayer = Vector3.Distance(enemy.transform.position, _carPosition.Get());
 
-            if(distanceToPlayer <= _patrolRadius)
+            if(distanceToPlayer <= enemy.AttackRange)
             {
-                enemy.ChangeState<AttackState>();
-            }
-            else
-            {
-                enemy.MoveToTarget(_targetPosition, false);
-                enemy.SetAnimation(_animAlterTrigger);
+                enemy.ChangeState<ChaseState>();
 
-                if(Vector3.Distance(enemy.transform.position, _targetPosition) < 0.5f)
-                    SetNewPatrolPoint();
+                return;
             }
+
+            Patrol(enemy);
         }
 
-        private void SetNewPatrolPoint()
+        private void Patrol(StickManEnemy enemy)
         {
-            var randomOffset = Random.insideUnitCircle * _patrolRadius;
-            _targetPosition = _spawnPosition + new Vector3(randomOffset.x, 0, randomOffset.y);
+            if(Vector3.Distance(enemy.transform.position, _targetPosition) <= 0.5f && _waitTimer <= 0)
+            {
+                _isMoving = false;
+
+                if(Random.value < 0.5f)
+                {
+                    _waitTimer = Random.Range(1f, _waitingTime);
+
+                    enemy.SetAnimation(_animState);
+                }
+                else
+                {
+                    var offset = Random.insideUnitCircle * enemy.PatrolRange;
+                    _targetPosition = enemy.SpawnPosition + new Vector3(offset.x, 0, offset.y);
+                    _isMoving = true;
+
+                    enemy.SetAnimation(_animAlterState);
+                }          
+            }
+            else if(_isMoving)
+            {
+                enemy.MoveToTarget(_targetPosition, false);
+            }
+            else
+                _waitTimer -= Time.deltaTime;
+
         }
     }
 }

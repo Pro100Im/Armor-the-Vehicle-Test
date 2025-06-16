@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stickManPrefab: {fileID: -2109633297988276440, guid: 3357963946cb4bb4a87aa6dda95fc99f, type: 3}
   _poolSize: 50
+  _maxRandomSpawnRot: 360
 --- !u!1 &1986079333310613939
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stickManPrefab: {fileID: -2109633297988276440, guid: 3357963946cb4bb4a87aa6dda95fc99f, type: 3}
   _poolSize: 50
+  _maxRandomSpawnRot: 360
 --- !u!1 &4268862098345886279
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +270,7 @@ GameObject:
   - component: {fileID: 211787484368227003}
   - component: {fileID: 3876462545359995198}
   - component: {fileID: 605478120035284225}
+  - component: {fileID: 4822687553968152450}
   m_Layer: 0
   m_Name: Road1
   m_TagString: Untagged
@@ -361,6 +364,27 @@ MonoBehaviour:
   _minDistance: 0.5
   _minEnemyCount: 10
   _maxEnemyCount: 50
+--- !u!65 &4822687553968152450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4268862098345886279}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.520395, y: 1.0500002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4493232950471895427
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stickManPrefab: {fileID: -2109633297988276440, guid: 3357963946cb4bb4a87aa6dda95fc99f, type: 3}
   _poolSize: 50
+  _maxRandomSpawnRot: 360
 --- !u!1 &5071385654285292440
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +500,7 @@ GameObject:
   - component: {fileID: 6774858488335667921}
   - component: {fileID: 2582981206424757959}
   - component: {fileID: 2416225175937443332}
+  - component: {fileID: 5471210920573005038}
   m_Layer: 0
   m_Name: Road2
   m_TagString: Untagged
@@ -568,6 +594,27 @@ MonoBehaviour:
   _minDistance: 0.5
   _minEnemyCount: 10
   _maxEnemyCount: 50
+--- !u!65 &5471210920573005038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352699617278186189}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.520395, y: 1.0500002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7987089811245758294
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +627,7 @@ GameObject:
   - component: {fileID: 3990973114611286554}
   - component: {fileID: 6577761848018322153}
   - component: {fileID: 4700363802446076758}
+  - component: {fileID: 7282604185349107073}
   m_Layer: 0
   m_Name: Road3
   m_TagString: Untagged
@@ -673,6 +721,27 @@ MonoBehaviour:
   _minDistance: 0.5
   _minEnemyCount: 10
   _maxEnemyCount: 50
+--- !u!65 &7282604185349107073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7987089811245758294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.520395, y: 1.0500002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &71238292104634861
 PrefabInstance:
   m_ObjectHideFlags: 0

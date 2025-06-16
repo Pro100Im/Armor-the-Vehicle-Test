@@ -43,6 +43,7 @@ namespace Game.Enemy
             enemy.transform.parent = null;
             enemy.transform.position = position;
             enemy.transform.rotation = rotation;
+            enemy.Init(position);
             enemy.gameObject.SetActive(true);
 
             _activeEnemies.Add(enemy);
@@ -52,9 +53,6 @@ namespace Game.Enemy
 
         public void Despawn(StickManEnemy enemy)
         {
-            if(!_activeEnemies.Contains(enemy))
-                return;
-
             enemy.gameObject.SetActive(false);
             enemy.transform.parent = transform;
 

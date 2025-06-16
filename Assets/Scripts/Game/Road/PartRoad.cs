@@ -58,10 +58,6 @@ namespace Game.Road
                     enemy.transform.position = worldPos;
                     enemy.gameObject.SetActive(true);
                 }
-                else
-                {
-                    Debug.Log($"valid {valid} || _spawnPositions.Count {_spawnPositions.Count}");
-                }
 
                 attempts++;
             }
